@@ -1,3 +1,11 @@
+.ScanPage .scan-img {
+  width: 80%;
+}
+
+.ScanPage .scan-camera {
+  width: 100%;
+}
+
 .ScanPage .scan-icons{
   font-size: 2rem;
 }

@@ -12,6 +12,7 @@ import RecyclableImg from '../../assets/images/recyclable.png'
 import NonRecyclableImg from '../../assets/images/cross.png'
 import NotFound from '../../assets/images/detective.png'
 import ScanImg from '../../assets/images/scanner-img.png'
+import Scan2Img from '../../assets/images/scanner-2-img.png'
 
 const ScanPage = () => {
 
@@ -111,6 +112,16 @@ const ScanPage = () => {
     setShowScanButton(false)
   }
 
+  const handleRetry = () => {
+    setResult(null)
+    setTimeout(() => {
+      setCamera(true)
+    }, 1000)
+    
+  }
+
+  
+
 
   // When the result state changes we call the API to fetch datas
   useEffect(() => {
@@ -125,26 +136,37 @@ const ScanPage = () => {
       <section className="ScanPageContainer">
         <div className="container px-5">
           {!result ?
-            <div className="row gx-5 align-items-center justify-content-center justify-content-lg-between">
-              <div className="col-12 col-lg-5">
+            <div className="row gx-5 justify-content-center justify-content-lg-between">
+              {camera ?
+                <div className="col-12 col-lg-3">
+                  <h4>Passer votre code barre pour le scanner</h4>
+                  <img src={Scan2Img} className="img-fluid" alt="scan logo" />
+                </div>
+              :
+              <div className="col-12 col-lg-4">
                 <h2 className="display-4 lh-1 mb-4">Scanner votre produit</h2>
                 {showScanButton ? 
-                  <button className='btn btn-outline-success to-scan-button' onClick={() => setCamera(true)}>Scanner</button> 
+                  <button className='btn btn-success btn-lg to-scan-button' onClick={() => setCamera(true)}>Scanner</button> 
                   :
                   <button className='btn btn-outline-success to-scan-button' onClick={handleReload}>Scanner un autre produit</button>
                 }
               </div>
-              <div className="col-sm-8 col-md-6">
+              }
+              
               {camera ? 
-                <div className='ScanPage-container'>
-                  <div className="container">
-                    <Scanner onDetected={onDetected} />
+                <div className="col-12 col-lg-9 col-sm-8 col-md-6">
+                  <div className='scan-camera'>
+                    <div className="container">
+                      <Scanner onDetected={onDetected} />
+                    </div>
                   </div>
                 </div>
                 :
-                <div className="px-5 px-sm-0"><img className="img-fluid" src={ScanImg} alt="scan logo" /></div>
+                <div className="col-sm-8 col-md-6">
+                  <div className="px-5 px-sm-0"><img className="img-fluid scan-img" src={ScanImg} alt="scan logo" /></div>
+                </div>
               }
-              </div>
+              
             </div>
           : 
             (!responseStatus) ?
@@ -158,7 +180,7 @@ const ScanPage = () => {
               <h2 className="display-4 lh-1 mb-4">Produit non trouvé</h2>
               <h4 className="lh-1 mb-2">Que faire ?</h4>
               <div className="d-flex justify-content-around mb-4">
-                <button className="btn btn-outline-success">
+                <button className="btn btn-outline-success" onClick={() => handleRetry()}>
                   <p>Réessayer</p>
                   <i class="bi bi-arrow-counterclockwise scan-icons"></i>
                 </button>
@@ -166,10 +188,12 @@ const ScanPage = () => {
                   <p>Entrez le code</p>
                   <i class="bi bi-pencil-square scan-icons"></i>
                 </button>
-                <button className="btn btn_custom_gold">
-                  <p>Contribuer</p>
-                  <i class="bi bi-folder-plus scan-icons"></i>
-                </button>
+                <a href="/contribute">
+                  <button className="btn btn_custom_gold">
+                    <p>Contribuer</p>
+                    <i class="bi bi-folder-plus scan-icons"></i>
+                  </button>
+                </a>
               </div>
               <p><i class="bi bi-exclamation-triangle-fill scan-icons scan-icons-danger"></i> Il se peut que votre produit ne soit pas alimentaire, ou qu'il ne figure pas encore dans nos données.</p>
               </div>
