@@ -1,0 +1,40 @@
+.Home {
+  height: 100vh;
+}
+
+.Home .desktop-version {
+  display: block;
+}
+
+.Home .mobile-version {
+  display: none;
+}
+
+.Home .home_img {
+  width: 100%;
+}
+
+.Home .btn_custom_brown {
+  color: #A0522D;
+  border-color: #A0522D;
+}
+
+.Home .btn_custom_brown:hover {
+  color: #fff;
+  background-color: #A0522D;
+  border-color: #A0522D;
+}
+
+.Home .mobile_separator {
+  height: 20px;
+  width: 100vw;
+}
+
+@media (max-width: 576px) {
+  .Home .desktop-version {
+    display: none;
+  }
+  .Home .mobile-version {
+    display: block;
+  }
+}

@@ -1,0 +1,29 @@
+.ScanPage .scan-icons{
+  font-size: 2rem;
+}
+
+.ScanPage .btn_custom_brown {
+  color: #A0522D;
+  border-color: #A0522D;
+}
+
+.ScanPage .btn_custom_brown:hover {
+  color: #fff;
+  background-color: #A0522D;
+  border-color: #A0522D;
+}
+
+.ScanPage .btn_custom_gold {
+  color: orange;
+  border-color: orange;
+}
+
+.ScanPage .btn_custom_gold:hover {
+  color: #fff;
+  background-color: orange;
+  border-color: orange;
+}
+
+.ScanPage .scan-icons-danger {
+  color: rgb(187, 4, 4);
+}
