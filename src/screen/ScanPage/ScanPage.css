@@ -1,5 +1,28 @@
+.ScanPage h2 {
+  text-align: center;
+}
+
+.ScanPage section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.ScanPage a {
+  text-decoration: none;
+  color: green;
+}
+
+.ScanPage .scan-choice-button {
+  display: flex;
+  justify-content: space-around;
+}
+
 .ScanPage .scan-img {
   width: 80%;
+}
+
+.ScanPage .result-status-image img{
+  width: 50%;
 }
 
 .ScanPage .scan-camera {
@@ -34,4 +57,17 @@
 
 .ScanPage .scan-icons-danger {
   color: rgb(187, 4, 4);
+}
+
+.ScanPage .result-status-recyclable,.ScanPage  .result-status-unrecyclable {
+  text-transform: uppercase;
+  text-shadow: 0px 0px 10px rgb(255, 255, 255);
+}
+
+.ScanPage .result-status-recyclable {
+  color: green;
+}
+
+.ScanPage .result-status-unrecyclable {
+  color: red;
 }
