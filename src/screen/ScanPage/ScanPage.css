@@ -2,6 +2,12 @@
 
 }
 
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  display: none;
+}
+
+/***** Background Decoration 
+******/
 .ScanPage .ScanPage-decoration1 {
   position: absolute;
   top: 50vh;
@@ -24,6 +30,8 @@
   background-color: rgba(48, 212, 56, 0.2);
 }
 
+/***** Custom buttons
+*****/
 .ScanPage .btn_custom_brown {
   color: #A0522D;
   border-color: #A0522D;
@@ -46,6 +54,27 @@
   border-color: orange;
 }
 
+.ScanPage .right-result-status-recyclable,.ScanPage  .right-result-status-unrecyclable {
+  text-transform: uppercase;
+  text-shadow: 0px 0px 10px rgb(255, 255, 255);
+}
+
+.ScanPage .right-result-status-recyclable {
+  color: green;
+}
+
+.ScanPage .right-result-status-unrecyclable {
+  color: red;
+}
+
+.ScanPage .right-result-found-info a {
+  text-decoration: none;
+  color: green;
+}
+
+
+/***** Desktop version
+*****/
 .ScanPage-desktop {
   position: relative;
   z-index: 1;
@@ -53,13 +82,16 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  overflow: hidden;
 }
 
 .ScanPage-mobile {
   display: none;
 }
 
-.ScanPage .left-info-container {
+/**** Left desktop aside
+****/
+.ScanPage .left-info-container, .ScanPage .left-handcode-container, .ScanPage .left-camera-container, .ScanPage .left-result-not-found-container, .ScanPage .left-result-found-container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -70,32 +102,96 @@
 }
 
 
-.ScanPage .left-info-buttons {
+.ScanPage .left-info-buttons, .ScanPage .left-handcode-input, .ScanPage .left-camera-container {
   display: flex;
   flex-direction: column;
   width: 50%;
   margin: 0 auto;
 }
 
-.ScanPage .left-info-buttons .btn {
+.ScanPage .left-info-buttons .btn, .ScanPage .left-handcode-input btn, .ScanPage .left-handcode-input input {
   margin: 10px 0;
 }
 
-.ScanPage .right-img-container {
+.ScanPage .left-camera-img {
+  width: 100%;
+}
+
+.ScanPage .left-camera-img > img {
+  width: 40%;
+}
+
+.ScanPage .left-result-found-container button {
+  width: 45%;
+  margin: 0 auto;
+}
+
+/**** Right desktop aside
+****/
+.ScanPage .right-img-container, .ScanPage .right-handcode-container, .ScanPage .right-result-not-found-container, .ScanPage .right-result-found-container {
   display: flex;
   justify-content: center;
   align-content: center;
   width: 40vw;
-  height: 80vh;
+  min-width: 400px;
+  /* height: 80vh; */
 }
 
-.ScanPage .right-img-container > img {
+.ScanPage .right-result-found-container {
+  text-align: center;
+}
+
+.ScanPage .right-camera-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 50vw;
+  min-width: 400px;
+}
+
+
+.ScanPage .left-handcode-container input {
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.ScanPage .left-handcode-container input:focus {
+  outline: green;
+  border: 1px solid green;
+}
+
+.ScanPage .right-img-container > img, .ScanPage .right-handcode-container > img, .ScanPage .right-camera-container > img, .ScanPage .right-result-not-found-container > img {
   padding: 50px;
   width: 100%;
 }
 
+.ScanPage .right-result-found-container img {
+  padding: 50px;
+  width: 80%;
+}
 
-@media (max-width: 576px) {
+.ScanPage .left-result-not-found-buttons .btn {
+  margin: 10px;
+}
+
+@media screen and (min-width: 576px) and (max-width: 750px) {
+  .ScanPage .right-img-container, .ScanPage .right-handcode-container, .ScanPage .right-result-not-found-container, .ScanPage .right-result-found-container {
+    min-width: 200px;
+    margin-top: 15vh;
+    height: 300px;
+    width: 300px;
+    /* height: 80vh; */
+  }
+  .ScanPage .right-img-container > img, .ScanPage .right-handcode-container > img, .ScanPage .right-camera-container > img, .ScanPage .right-result-not-found-container > img {
+    padding: 30px;
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 576px) {
   
   .ScanPage-desktop {
     display: none;
@@ -142,6 +238,7 @@
   }
 
 }
+
 
 
 /*
