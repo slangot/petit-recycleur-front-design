@@ -13,6 +13,7 @@ import NonRecyclableImg from '../../assets/images/cross.png'
 import NotFound from '../../assets/images/detective.png'
 import ScanImg from '../../assets/images/scanner-img.png'
 import Scan2Img from '../../assets/images/scanner-2-img.png'
+import Logo from '../../assets/images/Le-petit-recycleur-logo-black.png'
 
 const ScanPage = () => {
 
@@ -148,12 +149,59 @@ const ScanPage = () => {
   },[result])
 
   return (
+<>
+  <div className="ScanPage">
+    <div className="ScanPage-decoration1"></div>
+    <div className="ScanPage-decoration2"></div>
+    <div className="ScanPage-decoration3"></div>
+    <Navbar />
+    <div className="ScanPage-desktop">
+      <div className="left-info-container">
+        <h2>Trouver votre produit</h2>
+        <div className="left-info-buttons">
+          <button className="btn btn-outline-success">Scanner</button>
+          <button className="btn btn_custom_brown">Saisir code</button>
+        </div>
+      </div>
+      <div className="right-img-container">
+        <img src={ScanImg} alt='scan logo'/>
+      </div>
+    </div>
+
+
+
+    <div className="ScanPage-mobile">
+      <div className="top-info-container">
+      <img src={Logo} className="top-mobile-logo" alt="logo mobile" />
+        <h2>Trouver votre produit</h2>
+        <div className="top-info-buttons">
+          <button className="btn btn-outline-success">Scanner</button>
+          <button className="btn btn_custom_brown">Saisir code</button>
+        </div>
+        <div className="scan-img-mobile-container">
+          <img src={ScanImg} alt='scan logo'/>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+{/*
+
     <div className="ScanPage">
       <Navbar />
       <section className="ScanPageContainer">
-        <div className="container px-5">
+        <div className="container">
           {!result ?
-            <div className="row gx-5 justify-content-center justify-content-lg-between">
+            <div className="custom-row row gx-5 justify-content-center justify-content-lg-between">
               {camera ?
                 <div className="col-12 col-lg-3">
                   <h4>Passer votre code barre pour le scanner</h4>
@@ -163,15 +211,15 @@ const ScanPage = () => {
               // codeBar ?
               // <div className="col-12 col-lg-3">
               //     <h4>Entrez le code barre</h4>
-              //     {/* <img src={Scan2Img} className="img-fluid" alt="scan logo" /> */}
+              //     {/* <img src={Scan2Img} className="img-fluid" alt="scan logo" /> * /}
               //   </div>
               :
               <div className="col-12 col-lg-4">
-                <h2 className="display-4 lh-1 mb-4">Trouver votre produit</h2>
+                <h2 className="display-4 mb-4">Trouver votre produit</h2>
                 {showScanButton ? 
                 <div className="scan-choice-button">
                   <button className='btn btn-outline-success btn-lg to-scan-button' onClick={() => setCamera(true)}>Scanner</button> 
-                  {/* <button className='btn btn-outline-success btn-lg to-scan-button' onClick={() => setCodeBar(true)}>Saisir code</button>  */}
+                  {/* <button className='btn btn-outline-success btn-lg to-scan-button' onClick={() => setCodeBar(true)}>Saisir code</button>  * /}
                 </div>
                   :
                   <button className='btn btn-outline-success to-scan-button' onClick={() => handleReload()}>Scanner un autre produit</button>
@@ -195,49 +243,50 @@ const ScanPage = () => {
                 // </div>
                 :
                 <div className="col-sm-8 col-md-6">
-                  <div className="px-5 px-sm-0"><img className="img-fluid scan-img" src={ScanImg} alt="scan logo" /></div>
+                  <div className="px-sm-0"><img className="img-fluid scan-img" src={ScanImg} alt="scan logo" /></div>
                 </div>
               }
               
             </div>
           : 
             (!responseStatus) ?
-            <div className="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+            <div className="custom-row row gx-5 align-items-center justify-content-center justify-content-lg-between">
               <div className="col-12 col-lg-5">
-                <div className="px-5 px-sm-0">
+                <div className="px-sm-0">
                   <img className="img-fluid" src={NotFound} alt="scan logo" />
                 </div>
               </div>
-              <div className="col-sm-8 col-md-6 col-lg-7">
+              <div className="col-sm-8 col-md-3 col-lg-7">
                 <h2 className="display-4 lh-1 mb-4">Produit non trouvé</h2>
                 <h4 className="lh-1 mb-2">Que faire ?</h4>
                 <div className="d-flex justify-content-around mb-4">
                   <button className="btn btn-outline-success" onClick={() => handleRetry()}>
                     <p>Réessayer</p>
-                    <i class="bi bi-arrow-counterclockwise scan-icons"></i>
+                    <i className="bi bi-arrow-counterclockwise scan-icons"></i>
                   </button>
-                  {/* <button className="btn btn_custom_brown" onClick={handleSetCodeBar()}> */}
+                  {/* <button className="btn btn_custom_brown" onClick={handleSetCodeBar()}> * /}
                   <button className="btn btn_custom_brown">
                     <p>Entrez le code</p>
-                    <i class="bi bi-pencil-square scan-icons"></i>
+                    <i className="bi bi-pencil-square scan-icons"></i>
                   </button>
                   <a href="/contribute">
                     <button className="btn btn_custom_gold">
                       <p>Contribuer</p>
-                      <i class="bi bi-folder-plus scan-icons"></i>
+                      <i className="bi bi-folder-plus scan-icons"></i>
                     </button>
                   </a>
                 </div>
-                <p><i class="bi bi-exclamation-triangle-fill scan-icons scan-icons-danger"></i> Il se peut que votre produit ne soit pas alimentaire, ou qu'il ne figure pas encore dans nos données.</p>
+                <p><i className="bi bi-exclamation-triangle-fill scan-icons scan-icons-danger"></i> Il se peut que votre produit ne soit pas alimentaire, ou qu'il ne figure pas encore dans nos données.</p>
               </div>
             </div>
 
             : responseStatus &&
             <>
-            <div className='ScanPage-result-container row gx-5 align-items-center justify-content-center justify-content-lg-between'>
+            <div className='ScanPage-result-container column gx-5 align-items-center justify-content-center justify-content-lg-between'>
             
-              <h2>Resultats :</h2>
-              <div className="col-lg-5">
+              <h2><u>RESULTATS :</u></h2>
+              <div className='ScanPage-result-container row gx-5 align-items-center justify-content-center justify-content-lg-between'>
+              <div className="col-lg-5 col-md-5 col-sm-12">
                 <h3>Code Barre : </h3>
                 <h4>{result}</h4>
                 {apiRes && 
@@ -250,17 +299,17 @@ const ScanPage = () => {
                 }
               </div>
               {apiRes &&
-              <div className="col-lg-5">
+              <div className="result-container col-lg-5 col-md-5 col-sm-6">
                 {(apiRes.data.product.packaging_tags || apiRes.data.product.packaging) && recyclingName.some(element => (apiRes.data.product.packaging_tags.includes(element) || apiRes.data.product.packaging.includes(element))) ?
                   <>
-                    <div className='result-status-image mb-4'>
+                    <div className='result-status-image mb-4 mt-2'>
                       <img src={RecyclableImg} alt='recyclable' />
                     </div>
                     <h3 className='result-status-recyclable'><strong>Recyclable</strong>*</h3>
                     <p>Pour plus d'informations consulter <a target="_blank" rel="noopener noreferrer" href="https://www.triercestdonner.fr/guide-du-tri">triercestdonner.fr/guide-du-tri</a></p>
                   </>
                 : <>
-                    <div className='result-status-image mb-4'>
+                    <div className='result-status-image mb-4 mt-2'>
                       <img src={NonRecyclableImg} alt='unrecyclable' />
                     </div>
                     <h3 className='result-status-unrecyclable'><strong>Non Recyclable</strong></h3>
@@ -269,20 +318,22 @@ const ScanPage = () => {
               </div>
                 }
             </div>
-            <div className="d-flex justify-content-around mt-4 mb-4">
-            <button className="btn btn-outline-success" onClick={() => handleRetry()}>
+            </div>
+            <div className="button-container d-flex justify-content-around mt-5 mb-1">
+            <button className="btn-new-action btn btn-outline-success" onClick={() => handleRetry()}>
               Scanner un autre code
             </button>
-            {/* <button className="btn btn_custom_brown" onClick={handleSetCodeBar()}> */}
-            <button className="btn btn_custom_brown">
+            {/* <button className="btn btn_custom_brown" onClick={handleSetCodeBar()}> * /}
+            <button className="btn-new-action btn btn_custom_brown">
               Informations sur le recyclage
             </button>
             <a href="/contribute">
-              <button className="btn btn_custom_gold">
+              <button className="btn-new-action btn btn_custom_gold">
                 Contribuer au projet
               </button>
             </a>
           </div>
+              
           </>
         }
 
@@ -292,6 +343,8 @@ const ScanPage = () => {
         </section>
 
       </div>
+      */}
+      </>
   );
 }
  

@@ -36,5 +36,15 @@
   }
   .Home .mobile-version {
     display: block;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .Home .home-logo-container {
+    width: 60vw;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+  }
+  .Home .home-logo-container img {
+    width: 100%;
   }
 }
