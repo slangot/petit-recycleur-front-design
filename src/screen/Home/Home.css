@@ -31,6 +31,10 @@
 }
 
 @media (max-width: 576px) {
+  .masthead {
+    padding-top: 0;
+    padding-bottom: 10px;
+  }
   .Home .desktop-version {
     display: none;
   }
@@ -43,6 +47,7 @@
     width: 60vw;
     margin: 0 auto;
     margin-bottom: 1rem;
+    margin-top: 0;
   }
   .Home .home-logo-container img {
     width: 100%;

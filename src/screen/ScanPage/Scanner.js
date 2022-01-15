@@ -11,6 +11,11 @@ const Scanner = props => {
         type : "LiveStream",
         target: document.querySelector('#interactive')    // Or '#yourElement' (optional)
       },
+    //   constraints: {
+    //     width: 640,
+    //     height: 480,
+    //     facing: "user" // or user
+    // },
       locate: true,
       decoder : {
         readers : ["code_128_reader",
