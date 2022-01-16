@@ -29,14 +29,12 @@ const ScanPage = () => {
   // states
   const [camera, setCamera] = useState(false)
   const [handCode, setHandCode] = useState(false)
-  //const [codeBar, setCodeBar] = useState(false)
   const [codeBarResult, setCodeBarResult] = useState(null)
   const [showScanButton, setShowScanButton] = useState(true)
 
   const [result, setResult] = useState(null)
   const [apiRes, setApiRes] = useState(null)
   const [responseStatus, setResponseStatus] = useState(null)
-  //const [loading, setLoading] = useState(false)
 
   // recycling validate names
   const recyclingName = [
@@ -79,10 +77,6 @@ const ScanPage = () => {
   const handleSetHandCode = () => {
     setHandCode(true)
   }
-
-  // const handleSetCodeBar = () => {
-  //   setCodeBar(true)
-  // }
 
    const handleCodeBarResult = (code) => {
     setCodeBarResult(code)
@@ -143,18 +137,6 @@ const ScanPage = () => {
     //setCodeBar(false)
   }
 
-  const handleRetry = () => {
-    setResult(null)
-    //setCodeBarResult(null)
-    setTimeout(() => {
-      setCamera(true)
-    }, 1000)
-    
-  }
-
-  
-
-
   // When the result state changes we call the API to fetch datas
   useEffect(() => {
     if(result) {
@@ -169,7 +151,6 @@ const ScanPage = () => {
     <div className="ScanPage-decoration1"></div>
     <div className="ScanPage-decoration2"></div>
     <div className="ScanPage-decoration3"></div>
-    {/* <Navbar /> */}
 
     <div className="ScanPage-desktop">
 

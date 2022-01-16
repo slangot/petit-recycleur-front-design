@@ -1,0 +1,285 @@
+/***** Desktop version
+*****/
+.ContributePage-desktop {
+  position: relative;
+  z-index: 1;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  overflow: hidden;
+}
+
+.ContributePage-mobile {
+  display: none;
+  position: relative;
+  z-index: 1;
+}
+
+
+/***** Background Decoration 
+******/
+.ContributePage .ContributePage-decoration1 {
+  position: absolute;
+  top: 50vh;
+  left: -10vw;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  z-index: 0;
+  background-color: rgba(48, 212, 56, 0.2);
+}
+
+.ContributePage .ContributePage-decoration2 {
+  position: absolute;
+  top: 5vh;
+  left: 90vw;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  z-index: 0;
+  background-color: rgba(48, 212, 56, 0.2);
+}
+
+/***** Custom buttons
+*****/
+
+.ContributePage .btn-outline-success a, .ContributePage .btn-outline-warning a,{
+  text-decoration: none;
+}
+
+.ContactPage .btn-outline-success > a {
+  color: green;
+}
+
+.ContactPage .btn-outline-warning > a {
+  color: orange;
+}
+
+.ContributePage .btn_custom_brown {
+  color: #A0522D;
+  border-color: #A0522D;
+}
+
+.ContributePage .btn_custom_brown a {
+  text-decoration: none;
+  color: #A0522D;
+  border-color: #A0522D;
+}
+
+
+.ContributePage .btn_custom_full_brown {
+  color: white;
+  background-color: #A0522D;
+  border-color: none;
+}
+
+.ContributePage .btn_custom_full_brown:hover {
+  color: white;
+  background-color: #70391f;
+  border-color: none;
+}
+
+.ContributePage .btn_custom_brown:hover {
+  color: #fff;
+  background-color: #A0522D;
+  border-color: #A0522D;
+}
+
+.ContributePage .btn_custom_brown:hover a {
+  color: #fff;
+  background-color: #A0522D;
+  border-color: #A0522D;
+}
+
+.ContributePage .btn_custom_gold {
+  color: orange;
+  border-color: orange;
+}
+
+.ContributePage .btn_custom_gold:hover {
+  color: #fff;
+  background-color: orange;
+  border-color: orange;
+}
+
+
+/**** Left desktop aside
+****/
+.ContributePage-desktop .left-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  width: 40vw;
+  height: 80vh;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.ContributePage-desktop .contribute-img-container {
+  width: 40vw;
+  overflow: hidden;
+}
+
+.ContributePage-desktop .contribute-img-container img {
+  width: 40%;
+}
+
+.ContributePage-desktop button {
+  margin: 10px auto;
+}
+
+/**** Right desktop aside
+****/
+.ContributePage-desktop .right-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* align-content: center; */
+  width: 40vw;
+  height: 80vh;
+  /* text-align: center; */
+  margin-top: 10px;
+}
+
+.ContributePage-desktop .right-form-container form {
+  display: flex;
+  flex-direction: column;
+  align-content: space-evenly;
+}
+
+.ContributePage-desktop .right-form-container .status-buttons-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.ContributePage-desktop .right-form-container input[type="radio"]{
+  display: none;
+}
+
+.ContributePage-desktop .form-group, .ContributePage-desktop .form-check, .ContributePage-desktop .form-check-radio {
+  margin: 20px 0;
+}
+
+.ContributePage-desktop .form-group > label {
+  margin: 10px 0;
+}
+
+@media screen and (min-width: 600px) and (max-width: 750px) {
+  
+  .ContributePage-desktop .left-info-container h3 {
+    font-size: 0.9rem;
+  }
+
+  .ContributePage-desktop .left-info-buttons {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .ContributePage-desktop .left-info-container p {
+    font-size: 0.7rem;
+  }
+
+  .ContributePage-desktop .right-form-container label {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (min-width: 549px) and (max-width: 600px) {
+  .ContributePage-desktop .right-form-container .status-buttons-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: space-evenly;
+    justify-content: center;
+  }
+
+  .ContributePage-desktop .left-info-container h3 {
+    font-size: 0.9rem;
+  }
+
+  .ContributePage-desktop .left-info-buttons {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .ContributePage-desktop .left-info-container p {
+    font-size: 0.7rem;
+  }
+
+  .ContributePage-desktop .right-form-container label {
+    font-size: 0.7rem;
+  }
+
+}
+
+@media screen and (max-width: 549px) {
+  .ContributePage-desktop {
+    display: none;
+  }
+
+  .ContributePage-mobile {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ContributePage .ContributePage-decoration2 {
+    top: -5vh;
+    left: 70vw;
+  }
+
+  .ContributePage-mobile .top-mobile-logo-container {
+    width: 60%;
+    margin: 0 auto;
+    min-height: 40px;
+    margin-top: 0px;
+  }
+
+  .ContributePage-mobile .top-mobile-logo {
+    width: 100%;
+  }
+
+  .ContributePage-mobile input[type="radio"]{
+    display: none;
+  }
+
+  .ContributePage-mobile form {
+    width: 80vw;
+    margin: 0 auto;
+  }
+
+  .ContributePage-mobile .form-group, .ContributePage-mobile .form-check, .ContributePage-mobile .form-check-radio {
+    margin: 20px 0;
+  }
+
+  .ContributePage-mobile p {
+    margin-bottom: 0;
+  }
+
+  .ContributePage-mobile #barCodeInput {
+    text-align:center;
+  }
+
+  .ContributePage-mobile .status-buttons-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+  }
+
+  .ContributePage-mobile .form-check-certify {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .ContributePage-mobile .form-check-certify input {
+    margin-right: 10px;
+  }
+}
