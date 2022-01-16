@@ -124,7 +124,68 @@
     display: block;
     position: relative;
     z-index: 50;
+    overflow-y: hidden;
   }
+
+  .menu-link {
+    background-color: none;
+  }
+
+  .active-menu {
+    overflow: hidden;
+    position: relative;
+    z-index: 20;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 50%;
+    background-color: green;
+    box-shadow: 0px 0px 1px 1px green;
+  }
+
+  .active-menu i {
+    position: relative;
+    z-index: 40;
+    color: white;
+  }
+
+  .active-menu-deco-left {
+    position: absolute;
+    z-index: 30;
+    left: -1px;
+    top: 20px;
+    width: 38px;
+    height: 20px;
+    background-color: green;
+  }
+
+  /* .active-menu-deco-right {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    background-color: yellow;
+  } */
+
+  /* .menu-mobile .menu-list li:focus {
+    background-color: #333;
+      color: #fff;
+  } */
+
+   /* .menu-mobile .menu-global-container .menu-list li > a {
+    text-transform: capitalize;
+    color: #333;
+    transition: background-color .2s, color .2s;
+    
+    &:hover,
+    &:focus {
+      background-color: #333;
+      color: #fff;
+    }
+  }
+
+  .menu-mobile .menu-global-container .menu-list li.active > a {
+    background-color: #333;
+    color: #fff;
+  } */
 
 }
 

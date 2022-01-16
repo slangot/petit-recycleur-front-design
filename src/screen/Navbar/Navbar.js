@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 
 import './Navbar.css';
 
@@ -6,6 +6,53 @@ import Logo from '../../assets/images/Le-petit-recycleur-logo-black.png';
 import LogoUnique from '../../assets/images/unique_logo_1.png'
 
 const Navbar = () => {
+  const navLinkFocus = useRef(null);
+
+  const [link1, setLink1] = useState(false);
+  const [link2, setLink2] = useState(false);
+  const [link3, setLink3] = useState(false);
+  const [link4, setLink4] = useState(false);
+
+  const resetLink = () => {
+    setLink1(false)
+    setLink2(false)
+    setLink3(false)
+    setLink4(false)
+  }
+
+  const setActiveLink = (index) => {
+    console.log(index)
+    resetLink()
+    switch (index) {
+      case 1:
+        setLink1(true)
+        break;
+      case 2:
+        setLink2(true)
+        break;
+      case 3:
+        setLink3(true)
+        break;
+      case 4:
+        setLink4(true)
+        break;
+      default:
+        break;
+    }
+  }
+
+
+  const navLinkClick = () => {
+    navLinkFocus.classList.remove('active-menu')
+    navLinkFocus.current.focus();
+    navLinkFocus.classList.add('active-menu')
+  }
+
+  // $( '#topheader .navbar-nav a' ).on( 'click', function () {
+  //   $( '#topheader .navbar-nav' ).find( 'li.active' ).removeClass( 'active' );
+  //   $( this ).parent( 'li' ).addClass( 'active' );
+  // });
+
   return (
     <>
     {/* <nav class=" navbar-expand-lg navbar-light shadow-sm justify-content-between" id="mainNav">
@@ -40,19 +87,23 @@ const Navbar = () => {
           <nav class="menu-global-container">
               <ul class="menu-list">
                 <li class="menu-item">
-                  <a class="menu-item" href="/"><img src={LogoUnique} className="menu-logo" alt="logo" /></a>
+                  <a class="menu-link" href="/"><img src={LogoUnique} className="menu-logo" alt="logo" /></a>
                 </li>
-                <li class="menu-item">
-                  <a class="menu-link" href="/scan"><i class="bi bi-upc-scan"></i></a>
+                <li class="menu-item" onClick={() => setActiveLink(1)}>
+                  {/* <a class="menu-link" href="/scan"><i class="bi bi-upc-scan"></i></a> */}
+                  <a  class={link1 ? "active-menu" : "menu-link"} href="#"><i class="bi bi-upc-scan"></i></a>
                 </li>
-                <li class="menu-item">
-                  <a class="menu-link" href="/recycling"><i class="bi bi-recycle"></i></a>
+                <li class="menu-item" onClick={() => setActiveLink(2)}>
+                  {/* <a class="menu-link" href="/recycling"><i class="bi bi-recycle"></i></a> */}
+                  <a class={link2 ? "active-menu" : "menu-link"} href="#"><i class="bi bi-recycle"></i>{link2 ? <><span className="active-menu-deco-left"></span><span className="active-menu-deco-right"></span></> : null}</a>
                 </li>
-                <li class="menu-item">
-                  <a class="menu-link" href="/contribute"><i class="bi bi-people-fill"></i></a>
+                <li class="menu-item" onClick={() => setActiveLink(3)}>
+                  {/* <a class="menu-link" href="/contribute"><i class="bi bi-people-fill"></i></a> */}
+                  <a class={link3 ? "active-menu" : "menu-link"} href="#"><i class="bi bi-people-fill"></i></a>
                 </li>
-                <li class="menu-item">
-                  <a class="menu-link" href="/us"><i class="bi bi-info-circle"></i></a>
+                <li class="menu-item" onClick={() => setActiveLink(4)}>
+                  {/* <a class="menu-link" href="/us"><i class="bi bi-info-circle"></i></a> */}
+                  <a class={link4 ? "active-menu" : "menu-link"} href="#"><i class="bi bi-info-circle"></i></a>
                 </li>
               </ul>
           </nav>

@@ -169,7 +169,7 @@ const ScanPage = () => {
     <div className="ScanPage-decoration1"></div>
     <div className="ScanPage-decoration2"></div>
     <div className="ScanPage-decoration3"></div>
-    <Navbar />
+    {/* <Navbar /> */}
 
     <div className="ScanPage-desktop">
 
@@ -273,7 +273,6 @@ const ScanPage = () => {
           }
         </>
       }
-    }}
     </div>
 
     <div className="ScanPage-mobile">

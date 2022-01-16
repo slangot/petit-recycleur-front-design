@@ -9,7 +9,7 @@ import home_img from '../../assets/images/home_img.png'
 const Home = () => {
   return (
     <div id="page-top" className="Home">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="desktop-version">
         <header className="masthead">
               <div className="container px-5">
