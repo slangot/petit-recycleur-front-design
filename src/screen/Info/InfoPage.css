@@ -1,0 +1,203 @@
+.InfoPage {
+  overflow: initial;
+}
+
+.InfoPage p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.InfoPage a {
+  text-decoration: none;
+  color: black;
+}
+
+/***** Background Decoration 
+******/
+.InfoPage .InfoPage-decoration1 {
+  position: absolute;
+  top: 50vh;
+  left: -10vw;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  z-index: 0;
+  background-color: rgba(48, 212, 56, 0.2);
+}
+
+.InfoPage .InfoPage-decoration2 {
+  position: absolute;
+  top: 5vh;
+  left: 90vw;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  z-index: 0;
+  background-color: rgba(48, 212, 56, 0.2);
+}
+
+/***** Custom buttons
+*****/
+.InfoPage .btn_custom_brown {
+  color: #A0522D;
+  border-color: #A0522D;
+}
+
+.InfoPage .btn_custom_brown > a{
+  color: #A0522D;
+}
+
+.InfoPage .btn_custom_brown:hover > a{
+  color: white;
+}
+
+.InfoPage .btn_custom_full_brown {
+  color: white;
+  background-color: #A0522D;
+  border-color: none;
+}
+
+.InfoPage .btn_custom_full_brown:hover {
+  color: white;
+  background-color: #70391f;
+  border-color: none;
+}
+
+.InfoPage .btn_custom_brown:hover {
+  color: #fff;
+  background-color: #A0522D;
+  border-color: #A0522D;
+}
+
+.InfoPage .btn_custom_gold {
+  color: orange;
+  border-color: orange;
+}
+
+.InfoPage .btn_custom_gold:hover {
+  color: #fff;
+  background-color: orange;
+  border-color: orange;
+}
+
+.InfoPage .btn-outline-success > a {
+  color: green;
+}
+
+.InfoPage .btn-outline-success:hover > a {
+  color: white;
+}
+
+.InfoPage-desktop {
+  position: relative;
+  z-index: 1;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.InfoPage-mobile {
+  display: none;
+}
+
+
+/**** Left desktop aside
+****/
+.InfoPage .left-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  width: 40vw;
+  min-height: 100vh;
+  text-align: center;
+}
+
+/**** Right desktop aside
+****/
+.InfoPage .right-info-container {
+   position: relative;
+  width: 30vw;
+  top: 50%;
+  transform: translateY(15%);
+}
+
+.InfoPage-desktop .right-info-container > img {
+  width: 100%;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+
+.InfoPage-desktop .img-info-container, .InfoPage-desktop .data-info-container,  {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: red;
+}
+
+.InfoPage-desktop .img-info-container a {
+  color: green;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 550px) and (max-width: 615px) {
+  .InfoPage-mobile .top-mobile-logo-container {
+    display: none;
+  }
+
+  .InfoPage-mobile {
+    margin-top: 15px;
+  }
+} 
+
+@media screen and (max-width: 576px) {
+
+  .InfoPage {
+    padding-bottom: 10vh;
+  }
+  
+  .InfoPage-desktop {
+    display: none;
+  }
+
+  .InfoPage-mobile {
+    position: relative;
+    z-index: 1;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+  }
+
+  .InfoPage-mobile .top-mobile-logo-container {
+    width: 60%;
+    margin: 0 auto;
+    min-height: 40px;
+    margin-top: 0px;
+  }
+
+  .InfoPage-mobile .top-mobile-logo {
+    width: 100%;
+  }
+
+  .InfoPage-mobile .nature-img-congtainer {
+    width: 100vw;
+    box-shadow: 0px 5px 5px -5px grey;
+  }
+
+  .InfoPage-mobile .nature-img-congtainer > img {
+    width: 100%;
+    
+  }
+
+  .InfoPage-mobile p {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .InfoPage-mobile button {
+    margin: 10px auto;
+  }
+}

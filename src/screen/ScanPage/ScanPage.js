@@ -275,9 +275,10 @@ const ScanPage = () => {
       }
     </div>
 
+
+
     <div className="ScanPage-mobile">
 
-      
       <div className="top-mobile-logo-container">
         <a href="/">
           <img src={Logo} className="top-mobile-logo" alt="logo mobile" />
@@ -317,6 +318,7 @@ const ScanPage = () => {
         <>
           <div className="top-camera-container">
             <h2>Scanner le code barre</h2>
+            <p><i>Un problème d'affichage ? Vous pouvez tout de même scannez votre code barre</i></p>
           </div>
 
           <div className="bottom-camera-container">
