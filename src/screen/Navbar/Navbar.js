@@ -54,7 +54,7 @@ const Navbar = () => {
                   <li class="menu-item"><a class="menu-link" href="/scan">Scanner</a></li>
                   <li class="menu-item"><a class="menu-link" href="/recycling">Le recyclage</a></li>
                   <li class="menu-item"><a class="menu-link" href="/contribute">Contribuer</a></li>
-                  <li class="menu-item"><a class="menu-link" href="/us">A propos</a></li>
+                  <li class="menu-item"><a class="menu-link" href="/info">A propos</a></li>
               </ul>
           </nav>
         </div>
