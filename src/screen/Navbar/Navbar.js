@@ -52,10 +52,14 @@ const Navbar = () => {
           <nav className="menu-global-container">
             <a className="menu-brand" href="/"><img src={Logo} className="menu-logo" alt="logo" /></a>
               <ul className="menu-list">
-                  <li className="menu-item"><a className="menu-link" href="/scan">Scanner</a></li>
+                  {/* <li className="menu-item"><a className="menu-link" href="/scan">Scanner</a></li>
                   <li className="menu-item"><a className="menu-link" href="/recycling">Le recyclage</a></li>
                   <li className="menu-item"><a className="menu-link" href="/contribute">Contribuer</a></li>
-                  <li className="menu-item"><a className="menu-link" href="/info">A propos</a></li>
+                  <li className="menu-item"><a className="menu-link" href="/info">A propos</a></li> */}
+                  <NavLink activeclassname="active" exact='true' to="/scan"><li className="menu-item">Scanner</li></NavLink>
+                  <NavLink activeclassname="active" exact='true' to="/recycling"><li className="menu-item">Le recyclage</li></NavLink>
+                  <NavLink activeclassname="active" exact='true' to="/contribute"><li className="menu-item">Contribuer</li></NavLink>
+                  <NavLink activeclassname="active" exact='true' to="/info"><li className="menu-item">A propos</li></NavLink>
               </ul>
           </nav>
         </div>
