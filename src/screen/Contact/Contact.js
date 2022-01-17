@@ -32,41 +32,51 @@ const Contact = () => {
     }
     ).then(result => {
       if(result) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Message bien envoyé !',
-        })
+        // Swal.fire({
+        //   icon: 'success',
+        //   title: 'Message bien envoyé !',
+        // })
+        console.log(result)
       } else {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oups...',
-          text: 'Un problème est survenu lors de l\'envoi du message.',
-        })
+        // Swal.fire({
+        //   icon: 'error',
+        //   title: 'Oups...',
+        //   text: 'Un problème est survenu lors de l\'envoi du message.',
+        // })
+        console.error('erroooooooooor')
       }
   }) 
 
 }
 
-const handleSubmitMessage = () => {
+const handleSubmitMessage = (e) => {
+  e.preventDefault()
     if(certify) {
-      if(object !== 'Choisissez un objet') {
+      if(object !== 'Choisissez un objet' && object) {
+        console.log('coucou')
         postData()
       } else {
-        Swal.fire({
-          icon: 'error',
-          title: 'Veuillez sélectionner un objet pour le message',
-          timer: 2000
-        })
+        // Swal.fire({
+        //   icon: 'error',
+        //   title: 'Veuillez sélectionner un objet pour le message',
+        //   timer: 2000
+        // })
+        console.log('noooo pas d\'objet')
       }
 
     } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Veuillez cocher la confirmation',
-        timer: 2000
-      })
+      // Swal.fire({
+      //   icon: 'error',
+      //   title: 'Veuillez cocher la confirmation',
+      //   timer: 2000
+      // })
+      console.log('pas de certif laaaaaaaaaaaa')
     }
   }
+
+  useEffect(() => {
+    console.log('object : ' + object)
+  }, [])
 
   return (
     <div className="ContactPage">
@@ -87,34 +97,34 @@ const handleSubmitMessage = () => {
           <form>
             <h2>Nous contacter</h2>
 
-            <div class="form-group">
-              <label for="objectContact">Objet :</label>
-              <select class="form-control" id="objectContact" onChange={(e) => handleObject(e.target.value)}>
-                <option>Choisissez un objet</option>
-                <option>Recommandations</option>
-                <option>Problème recyclage</option>
-                <option>Problème contribution</option>
-                <option>Collaboration</option>
-                <option>Autre</option>
+            <div className="form-group">
+              <label htmlFor="objectContact">Objet :</label>
+              <select className="form-control" id="objectContact" onChange={(e) => handleObject(e.target.value)}>
+                <option value="Choisissez un objet">Choisissez un objet</option>
+                <option value="Recommandations">Recommandations</option>
+                <option value="Problème recyclage">Problème recyclage</option>
+                <option value="Problème contribution">Problème contribution</option>
+                <option value="Collaboration">Collaboration</option>
+                <option value="Autre">Autre</option>
               </select>
             </div>
 
-            {/* <div class="form-group">
-              <label for="exampleFormControlInput1">Email address</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            {/* <div className="form-group">
+              <label htmlFor="exampleFormControlInput1">Email address</label>
+              <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
             </div> */}
 
-            <div class="form-group">
-              <label for="textContact">Message :</label>
-              <textarea class="form-control" id="textContact" rows="5" onChange={(e) => handleText(e.target.value)}></textarea>
+            <div className="form-group">
+              <label htmlFor="textContact">Message :</label>
+              <textarea className="form-control" id="textContact" rows="5" onChange={(e) => handleText(e.target.value)}></textarea>
             </div>
 
-            <div class="form-check">
-              <input class="form-check-input custom-check-input" type="checkbox" id="certifyContact" onChange={(e) => handleCertify(e.target.value)} />
-              <label class="form-check-label" for="certifyContact">Je confirme le contenu de mon message</label>
+            <div className="form-check">
+              <input className="form-check-input custom-check-input" type="checkbox" id="certifyContact" onChange={(e) => handleCertify(e.target.value)} />
+              <label className="form-check-label" htmlFor="certifyContact">Je confirme le contenu de mon message</label>
             </div>
 
-            <button type="submit" class="btn btn-success" onClick={() => handleSubmitMessage()}>Envoyer</button>
+            <button type="submit" className="btn btn-success" onClick={(e) => handleSubmitMessage(e)}>Envoyer</button>
 
           </form>
 

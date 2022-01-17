@@ -45,7 +45,7 @@ const ContributePage = () => {
       if (result.isConfirmed) {
 
         const postData = async () => {
-          const submitData = await axios.post('http://localhost:3000/packaging', {
+          const submitData = await axios.post('http://localhost:6000/packaging', {
             barcode: recyclingBarcode,
             recyclingStatus: recyclingStatus,
           }

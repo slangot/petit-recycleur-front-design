@@ -3,25 +3,17 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Quagga from '@ericblade/quagga2'; 
 
-import Navbar from "../Navbar/Navbar";
 import Scanner from "./Scanner";
 
 import "./ScanPage.css";
 
 import LoaderImg from '../../assets/images/Plant.gif'
 import RecyclableImg from '../../assets/images/recyclable.png'
-import NonRecyclableImg from '../../assets/images/cross.png'
 import NotFound from '../../assets/images/detective.png'
 import ScanImg from '../../assets/images/scanner-img.png'
-import Scan2Img from '../../assets/images/scanner-2-img.png'
 import Logo from '../../assets/images/Le-petit-recycleur-logo-black.png'
 import CodeSearch from '../../assets/images/barcodesearch.png'
-import ScannerGun from '../../assets/images/scanner-gun-1.png'
-import ScannerPhone from '../../assets/images/scan-gif.gif'
 import NonRecyclableImg2 from '../../assets/images/non-recyclage-2.png'
-import RecyclableImg2 from '../../assets/images/recyclage-3.png'
-import SmallScan from '../../assets/images/small-scan.png'
-import SmallScanGif from '../../assets/images/KTS4.gif'
 import RecyclingLoader from '../../assets/images/Dbkl.gif'
 
 const ScanPage = () => {

@@ -7,12 +7,14 @@ import ContactPage from './screen/Contact/Contact';
 import ContributePage from './screen/Contribute/Contribute';
 import InfoPage from './screen/Info/InfoPage';
 import ScanPage from './screen/ScanPage/ScanPage';
+import RecyclingPage from './screen/Recycling/Recycling';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      
       <BrowserRouter>
+      <Navbar />
         <Routes>
           <Route path="/scan" exact element={<ScanPage />} />
         </Routes>
@@ -24,6 +26,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/contact" exact element={<ContactPage />} />
+        </Routes>
+        <Routes>
+          <Route path="/recycling" exact element={<RecyclingPage />} />
         </Routes>
         <Routes>
           <Route path="/" exact element={<Home />} />

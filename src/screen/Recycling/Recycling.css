@@ -1,0 +1,213 @@
+/***** Background Decoration 
+******/
+.RecyclingPage .RecyclingPage-decoration1 {
+  position: absolute;
+  top: 50vh;
+  left: -10vw;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  z-index: 0;
+  background-color: rgba(48, 212, 56, 0.2);
+}
+
+.RecyclingPage .RecyclingPage-decoration2 {
+  position: absolute;
+  top: 5vh;
+  left: 90vw;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  z-index: 0;
+  background-color: rgba(48, 212, 56, 0.2);
+}
+
+/***** Custom buttons
+*****/
+.RecyclingPage .btn_custom_brown {
+  color: #A0522D;
+  border-color: #A0522D;
+}
+
+.RecyclingPage .btn_custom_full_brown {
+  color: white;
+  background-color: #A0522D;
+  border-color: none;
+}
+
+.RecyclingPage .btn_custom_full_brown:hover {
+  color: white;
+  background-color: #70391f;
+  border-color: none;
+}
+
+.RecyclingPage .btn_custom_brown:hover {
+  color: #fff;
+  background-color: #A0522D;
+  border-color: #A0522D;
+}
+
+.RecyclingPage .btn_custom_gold {
+  color: orange;
+  border-color: orange;
+}
+
+.RecyclingPage .btn_custom_gold:hover {
+  color: #fff;
+  background-color: orange;
+  border-color: orange;
+}
+
+
+/**** RecyclingPage Desktop
+****/
+
+.RecyclingPage-desktop {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 20px 0;
+}
+
+.RecyclingPage-mobile {
+ display: none; 
+}
+
+.RecyclingPage-desktop h2, .RecyclingPage-desktop h4 {
+  text-align: center;
+}
+
+.RecyclingPage-desktop .top-recycling-buttons {
+  width: 50vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 10px auto;
+}
+
+.RecyclingPage-desktop .info-recycling-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+/**** Left side
+****/
+
+.RecyclingPage-desktop .left-info-recycling-container {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+}
+
+.RecyclingPage-desktop .left-info-recycling-image-container {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
+}
+
+.RecyclingPage-desktop .left-info-recycling-image-container img {
+  width: 50px;
+}
+
+.RecyclingPage-desktop .left-inf-recycling-list li {
+  list-style-type: square;
+}
+
+/**** Right side
+****/
+
+.RecyclingPage-desktop .right-info-recycling-container {
+  width: 40vw;
+}
+
+.RecyclingPage-desktop .right-info-recycling-image-container {
+  margin-top: 50px;
+  width: 40vw;
+}
+
+.RecyclingPage-desktop .right-info-recycling-image-container img {
+  width: 100%;
+}
+
+@media screen and (min-width: 700px) and (max-width: 950px) {
+  .RecyclingPage-desktop .top-recycling-buttons {
+    width: 70vw;
+  }
+}
+
+@media screen and (min-width: 549px) and (max-width: 700px) {
+  .RecyclingPage-desktop .top-recycling-buttons {
+    width: 80vw;
+  }
+}
+
+@media screen and (max-width: 549px) {
+  .RecyclingPage-desktop {
+    display: none;
+  }
+  
+  .RecyclingPage-mobile {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+    margin-top: 10px;
+  }
+
+  .RecyclingPage-mobile .top-mobile-logo-container {
+    width: 60%;
+    margin: 0 auto;
+    min-height: 40px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+
+  .RecyclingPage-mobile .top-mobile-logo {
+    width: 100%;
+  }
+
+  .RecyclingPage-mobile h2, .RecyclingPage-mobile h4 {
+    text-align: center;
+  }
+
+  .RecyclingPage-mobile h4 {
+    font-size: 1.1rem;
+  }
+
+  .RecyclingPage-mobile .top-recycling-buttons {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80vw;
+    margin: 10px auto;
+    justify-content: space-evenly;
+  }
+
+  .RecyclingPage-mobile .top-recycling-buttons button {
+    margin: 10px;
+  }
+
+  .RecyclingPage-mobile .top-info-recycling-container {
+    text-align: center;
+    margin-top: 5px;
+  }
+
+  .RecyclingPage-mobile .top-info-recycling-container h3{
+    margin: 0 0 10px 0;
+  }
+
+  .RecyclingPage-mobile .top-info-recycling-image-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vw;
+    margin: 20px 0;
+  }
+
+  .RecyclingPage-mobile .top-info-recycling-image-container img {
+    width: 15%;
+  }
+
+
+
+
+}
