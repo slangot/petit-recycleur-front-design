@@ -25,25 +25,23 @@ const Contact = () => {
   }
 
   const postData = async () => {
-    const submitData = await axios.post('http://localhost:3000/contact', {
+    const submitData = await axios.post('http://localhost:4000/contact', {
       object: object,
       text: text,
       email: ''
     }
     ).then(result => {
       if(result) {
-        // Swal.fire({
-        //   icon: 'success',
-        //   title: 'Message bien envoyé !',
-        // })
-        console.log(result)
+        Swal.fire({
+          icon: 'success',
+          title: 'Message bien envoyé !',
+        })
       } else {
-        // Swal.fire({
-        //   icon: 'error',
-        //   title: 'Oups...',
-        //   text: 'Un problème est survenu lors de l\'envoi du message.',
-        // })
-        console.error('erroooooooooor')
+        Swal.fire({
+          icon: 'error',
+          title: 'Oups...',
+          text: 'Un problème est survenu lors de l\'envoi du message.',
+        })
       }
   }) 
 
@@ -53,36 +51,29 @@ const handleSubmitMessage = (e) => {
   e.preventDefault()
     if(certify) {
       if(object !== 'Choisissez un objet' && object) {
-        console.log('coucou')
         postData()
       } else {
-        // Swal.fire({
-        //   icon: 'error',
-        //   title: 'Veuillez sélectionner un objet pour le message',
-        //   timer: 2000
-        // })
-        console.log('noooo pas d\'objet')
+        Swal.fire({
+          icon: 'error',
+          title: 'Veuillez sélectionner un objet pour le message',
+          timer: 2000
+        })
       }
 
     } else {
-      // Swal.fire({
-      //   icon: 'error',
-      //   title: 'Veuillez cocher la confirmation',
-      //   timer: 2000
-      // })
-      console.log('pas de certif laaaaaaaaaaaa')
+      Swal.fire({
+        icon: 'error',
+        title: 'Veuillez cocher la confirmation',
+        timer: 2000
+      })
     }
   }
 
-  useEffect(() => {
-    console.log('object : ' + object)
-  }, [])
-
   return (
     <div className="ContactPage">
-    <div className="ContactPage-decoration1"></div>
-    <div className="ContactPage-decoration2"></div>
-    <div className="ContactPage-decoration3"></div>
+      <div className="background-decoration1"></div>
+      <div className="background-decoration2"></div>
+      <div className="background-decoration3"></div>
 
       <div className="ContactPage-desktop">
 

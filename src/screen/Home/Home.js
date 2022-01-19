@@ -9,7 +9,6 @@ import home_img from '../../assets/images/home_img.png'
 const Home = () => {
   return (
     <div id="page-top" className="Home">
-      {/* <Navbar /> */}
       <div className="desktop-version">
         <header className="masthead">
               <div className="container px-5">
@@ -18,7 +17,7 @@ const Home = () => {
                           <div className="mb-5 mb-lg-0 text-center text-lg-start">
                               <h1 className="display-1 mb-3">Le recyclage à portée de tous.</h1>
                               <p className="lead fw-normal text-muted mb-3">Découvrez facilement si votre emballage est recyclable.</p>
-                              <a href="/us"><button type="button" class="btn btn_custom_brown btn-sm">En savoir plus</button></a>
+                              <a href="/info"><button type="button" class="btn btn_custom_brown btn-sm">En savoir plus</button></a>
                           </div>
                       </div>
                       <div className="col-lg-6">
@@ -54,7 +53,7 @@ const Home = () => {
                               </div>
                               <div className="mobile_separator"></div>
                               <p className="lead fw-normal text-muted mb-3">Découvrez facilement si votre emballage est recyclable.</p>
-                              <a href="/us"><button type="button" class="btn btn_custom_brown btn-sm">En savoir plus</button></a>
+                              <a href="/info"><button type="button" class="btn btn_custom_brown btn-sm">En savoir plus</button></a>
                             </div>
                         </div>
                 </div>

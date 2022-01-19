@@ -17,7 +17,7 @@ const ContributePage = () => {
   const [certify, setCertify] = useState()
 
   // Axios call to get the data
-  const handlePostData = async () => {
+  const handlePostData = () => {
     try { 
 
       const currentData = {
@@ -45,7 +45,7 @@ const ContributePage = () => {
       if (result.isConfirmed) {
 
         const postData = async () => {
-          const submitData = await axios.post('http://localhost:6000/packaging', {
+          const submitData = await axios.post('http://localhost:4000/packaging', {
             barcode: recyclingBarcode,
             recyclingStatus: recyclingStatus,
           }
@@ -74,22 +74,78 @@ const ContributePage = () => {
     }
   }
 
+  // Axios call to get the data
+  const handlePostData2 = () => {
+        const postData = async () => {
+          const submitData = await axios.post('http://localhost:4000/packaging', {
+            barcode: recyclingBarcode,
+            recyclingStatus: recyclingStatus
+          }
+          ).then(result => {
+            if(result) {
+              Swal.fire({
+                icon: 'success',
+                title: 'Contribution envoyée !',
+               
+              })
+            } else {
+              Swal.fire(
+                'Oups...',
+                'Un problème est survenu lors de l\'envoi...',
+                'error'
+              )
+            }
+        })
+      }
+      postData()
+    }
+
   const handleBarCode = (barcode) => {
     setRecyclingBarcode(barcode)
   }
 
   const handleStatus = (status) => {
-    setRecyclingStatus(status)
+    setRecyclingStatus(status === 'true' ? 1 : 0)
   }
 
   const handleCertify = () => {
-    
+    setCertify(!certify)
   }
 
-  const handleSubmitMessage = () => {
+  const handleSubmitMessage = (e) => {
+    e.preventDefault()
     if(certify) {
-      handlePostData()
+
+      if (recyclingBarcode){
+
+        if(recyclingStatus === 1 || recyclingStatus === 0) {
+
+          handlePostData()
+
+        } else {
+
+          Swal.fire({
+            icon: 'warning',
+            title: 'Vous devez choisir si le produit est recyclable ou non'
+          })
+
+        }
+
+      } else {
+
+        Swal.fire({
+          icon: 'warning',
+          title: 'Vous devez entrer un numéro de code barre'
+        })
+
+      }
+      
     } else {
+
+      Swal.fire({
+        icon: 'warning',
+        title: 'Vous devez cocher la confirmation'
+      })
 
     }
   }
@@ -100,9 +156,9 @@ const ContributePage = () => {
   return (
 
   <div className="ContributePage">
-    <div className="ContributePage-decoration1"></div>
-    <div className="ContributePage-decoration2"></div>
-    <div className="ContributePage-decoration3"></div>
+    <div className="background-decoration1"></div>
+    <div className="background-decoration2"></div>
+    <div className="background-decoration3"></div>
 
     <div className="ContributePage-desktop">
 
@@ -113,7 +169,7 @@ const ContributePage = () => {
             <img src={ContributeImg} alt="contribute logo" />
           </div>
           <div className="left-info-buttons">
-            <a href="/recycling"><button className="btn btn-outline-success">En savoir plus sur le recyclage.</button></a>
+            <a href="/recycling"><button className="btn btn-outline-success">En savoir plus sur le recyclage</button></a>
             <a target="_blank" rel="noopener noreferrer" href="https://www.triercestdonner.fr/guide-du-tri"><button className="btn btn_custom_brown">Voir le guide officiel du recyclage</button></a>
           </div>
         </div>
@@ -127,25 +183,25 @@ const ContributePage = () => {
             </div>
             <div className="status-buttons-container">
               <div className='form-check-radio'>
-                <input className="form-check-input" type="radio" name="recyclingStatus" id="recyclable1" value="recyclable"  onClick={(e) => handleStatus(e.target.value)}/>
-                <label className={recyclingStatus === 'recyclable' ? "form-check-label form-check-label-radio btn btn-success" : "form-check-label form-check-label-radio btn btn-outline-success"} for="recyclable1">
+                <input className="form-check-input" type="radio" name="recyclingStatus" id="recyclable1" value="true"  onClick={(e) => handleStatus(e.target.value)}/>
+                <label className={recyclingStatus === 1 ? "form-check-label form-check-label-radio btn btn-success" : "form-check-label form-check-label-radio btn btn-outline-success"} for="recyclable1">
                   Recyclable
                 </label>
               </div>
               <div className='form-check-radio'>
-                <input className="form-check-input" type="radio" name="recyclingStatus" id="recyclable2" value="non recyclable" onClick={(e) => handleStatus(e.target.value)}/>
-                <label className={recyclingStatus === 'non recyclable' ? "form-check-label form-check-label-radio btn btn-danger" : "form-check-label form-check-label-radio btn btn-outline-danger"} for="recyclable2">
+                <input className="form-check-input" type="radio" name="recyclingStatus" id="recyclable2" value="false" onClick={(e) => handleStatus(e.target.value)}/>
+                <label className={recyclingStatus === 0 ? "form-check-label form-check-label-radio btn btn-danger" : "form-check-label form-check-label-radio btn btn-outline-danger"} for="recyclable2">
                   Non recyclable
                 </label>
               </div>
             </div>
 
             <div className="form-check">
-              <input className="form-check-input custom-check-input" type="checkbox" id="certifyContact" onChange={(e) => handleCertify(e.target.value)} />
-              <label className="form-check-label" for="certifyContact">Je confirme le contenu de mon message.</label>
+              <input className="form-check-input custom-check-input" type="checkbox" id="certifyContact" onChange={() => handleCertify()} />
+              <label className="form-check-label" for="certifyContact">Je confirme les données de ma contribution.</label>
             </div>
 
-            <button type="submit" className="btn btn_custom_brown" onClick={() => handleSubmitMessage()}>Envoyer</button>
+            <button type="submit" className="btn btn_custom_brown" onClick={(e) => handleSubmitMessage(e)}>Envoyer</button>
 
           </form>
         </div>

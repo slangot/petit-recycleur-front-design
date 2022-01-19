@@ -94,10 +94,14 @@
 ****/
 
 .RecyclingPage-desktop .left-info-recycling-container {
+  position: relative;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   width: 40vw;
 }
+
+
 
 .RecyclingPage-desktop .left-info-recycling-image-container {
   display: flex;
@@ -109,7 +113,7 @@
   width: 50px;
 }
 
-.RecyclingPage-desktop .left-inf-recycling-list li {
+.RecyclingPage-desktop .left-info-recycling-list li {
   list-style-type: square;
 }
 
@@ -127,6 +131,7 @@
 
 .RecyclingPage-desktop .right-info-recycling-image-container img {
   width: 100%;
+  max-width: 500px;
 }
 
 @media screen and (min-width: 700px) and (max-width: 950px) {

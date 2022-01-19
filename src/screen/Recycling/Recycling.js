@@ -12,6 +12,7 @@ import LogoAluTriangle from '../../assets/images/logo-alu-recycle-triangle.png'
 import LogoPlastique from '../../assets/images/plastique-logo.jpg'
 import LogoTriman from '../../assets/images/triman-logo.jpg'
 import LogoMorbius from '../../assets/images/morbius.png'
+import LogoTrashMan from '../../assets/images/trash-man.png'
 
 import Logo from '../../assets/images/Le-petit-recycleur-logo-black.png'
 
@@ -52,7 +53,7 @@ const Recycling = () => {
       title: 'Autre',
       info: 'Les restes alimentaires, les dosettes à café, les articles d\'hygiène (coton, couches, essuie tout, masque ...), vaisselle en porcelaine ou jetable, pots en terre cuite ne sont pas recyclables.',
       list: [],
-      binImage: 'logo',
+      binImage: LogoTrashMan,
       imageRecycling: []
     }
   ]
@@ -66,9 +67,9 @@ const Recycling = () => {
   return (
 
       <div className="RecyclingPage">
-        <div className="RecyclingPage-decoration1"></div>
-        <div className="RecyclingPage-decoration2"></div>
-        <div className="RecyclingPage-decoration3"></div>
+        <div className="background-decoration1"></div>
+        <div className="background-decoration2"></div>
+        <div className="background-decoration3"></div>
 
         <div className="RecyclingPage-desktop">
 
@@ -98,13 +99,13 @@ const Recycling = () => {
               {infoList[infoChoice -1].list && 
               <>
                 <p>Liste non exhaustive des produits :<br />
-                  <ul className="left-inf-recycling-list">
+                  <ul className="left-info-recycling-list">
                     {infoList[infoChoice -1].list.map(listU => (<li>{listU}</li>))}
                   </ul>
                 </p>
               </>
               }
-              <a href='https://www.triercestdonner.fr/guide-du-tri'><button className="btn btn-outline-success">Guide de tri officiel</button></a> 
+              <a href='https://www.triercestdonner.fr/guide-du-tri' rel="noopener noreferrer" target="_blank"><button className="btn btn-outline-success">Guide de tri officiel</button></a> 
             </div>
 
             <div className="right-info-recycling-container">
@@ -160,7 +161,7 @@ const Recycling = () => {
                 </p>
               </>
               }
-              <a href='https://www.triercestdonner.fr/guide-du-tri'><button className="btn btn-outline-success">Guide de tri officiel</button></a> 
+              <a href='https://www.triercestdonner.fr/guide-du-tri' rel="noopener noreferrer" target="_blank"><button className="btn btn-outline-success">Guide de tri officiel</button></a> 
             </div>
           </>
           }

@@ -20,7 +20,7 @@ const ScanPage = () => {
 
   // states
   const [camera, setCamera] = useState(false)
-  const [handCode, setHandCode] = useState(false)
+  const [keyboard, setKeyboard] = useState(false)
   const [codeBarResult, setCodeBarResult] = useState(null)
   const [showScanButton, setShowScanButton] = useState(true)
 
@@ -58,7 +58,10 @@ const ScanPage = () => {
     'en:jar',
     'glas',
     'fr-verre',
-    'fr:Verre'
+    'fr:Verre',
+    'en:plastic',
+    'plastique',
+
   ]
 
   // Show/Hide the scan button
@@ -66,8 +69,8 @@ const ScanPage = () => {
     setShowScanButton(false)
   }
 
-  const handleSetHandCode = () => {
-    setHandCode(true)
+  const handleSetKeyboard = () => {
+    setKeyboard(true)
   }
 
    const handleCodeBarResult = (code) => {
@@ -85,34 +88,42 @@ const ScanPage = () => {
 
   // Axios call to get the data
   const getData = async () => {
-    try { 
-      const resData = await axios.get(`https://world.openfoodfacts.org/api/v0/product/${result}.json`)
-      .then(res => {
-        console.log(res)
-        console.log(res.data)
-        console.log(res.data.status_verbose)
-        console.log(res.data.status)
+    // try {
+    //   const resDataBD = await axios.get(`http://localhost:4000/packaging/${result}`)
+    //   .then(res => {
+    //     console.log(res)
+    //   })
+    // } catch (error) {
+    //   console.log(error)
+    // }
 
-        // State changing into the response data
-        setApiRes(res)
+    // if(!apiRes) {
 
-        // Checking for the response status, if the product has been found and then updating the responseStatus state
-        // if(res.data.status === 'product not found' || res.data.status_verbose === 'no code or invalid code' || !res.data.product.packaging) {
+      try { 
+        const resData = await axios.get(`https://world.openfoodfacts.org/api/v0/product/${result}.json`)
+        .then(res => {
+
+          // State changing into the response data
+          setApiRes(res)
+
+          // Checking for the response status, if the product has been found and then updating the responseStatus state
           if(res.data.status === 0 || !res.data.product.packaging) {
-          setResponseStatus(false)
-        } else {
-          setResponseStatus(true)
-        }
+            setResponseStatus(false)
+          } else {
+            setResponseStatus(true)
+          }
 
-        // Then we stop the camera
-        Quagga.stop()
-        setCamera(false)
-        setShowScanButton(false)
-        //setCodeBar(false)
-      })
-    } catch(error) {
-      console.log(error)
-    }
+          // Then we stop the camera
+          Quagga.stop()
+          setCamera(false)
+          setShowScanButton(false)
+          //setCodeBar(false)
+          console.log('responseStatus : ' + responseStatus)
+        })
+      } catch(error) {
+        console.log(error)
+      }
+    // }
   }
 
   // Function to reload the page
@@ -140,19 +151,19 @@ const ScanPage = () => {
   return (
 
   <div className="ScanPage">
-    <div className="ScanPage-decoration1"></div>
-    <div className="ScanPage-decoration2"></div>
-    <div className="ScanPage-decoration3"></div>
+    <div className="background-decoration1"></div>
+    <div className="background-decoration2"></div>
+    <div className="background-decoration3"></div>
 
     <div className="ScanPage-desktop">
 
-    {(!camera && !handCode &&!result) ?
+    {(!camera && !keyboard &&!result) ?
       <>
         <div className="left-info-container">
           <h2>Trouver votre produit</h2>
           <div className="left-info-buttons">
             <button className="btn btn-success" onClick={() => setCamera(true)}>Scanner</button>
-            <button className="btn btn_custom_brown" onClick={() => handleSetHandCode()}>Saisir code</button>
+            <button className="btn btn_custom_brown" onClick={() => handleSetKeyboard(codeBarResult)}>Saisir code</button>
           </div>
         </div>
 
@@ -163,17 +174,17 @@ const ScanPage = () => {
       : null
       }
 
-      {handCode &&
+      {keyboard && !result &&
         <>
-          <div className="left-handcode-container">
+          <div className="left-keyboard-container">
             <h2>Entrer le numéro du code barre de votre emballage</h2>
-            <div className="left-handcode-input">
-              <input type="number" placeholder="302329000485"/>
-              <button className="btn btn_custom_full_brown">Rechercher</button>
+            <div className="left-keyboard-input">
+              <input type="number" placeholder="302329000485" onChange={(e) => handleCodeBarResult(e.target.value)}/>
+              <button className="btn btn_custom_full_brown"onClick={() => handleSetResult(codeBarResult) }>Rechercher</button>
             </div>
           </div>
 
-          <div className="right-handcode-container">
+          <div className="right-keyboard-container">
             <img src={CodeSearch} alt='search logo'/>
           </div>
         </>
@@ -195,6 +206,11 @@ const ScanPage = () => {
       }
 
       {result &&
+        // !apiRes ?
+        // <div className="dataLoader">
+        //   <img src={LoaderImg} alt="loader" />
+        // </div>
+        // :
         <>
           {!responseStatus ?
           <>
@@ -204,8 +220,8 @@ const ScanPage = () => {
               <div className="left-result-not-found-buttons">
                 <p>Il se peut que votre produit ne soit pas encore dans nos données</p>
                 <button className="btn btn-outline-success" onClick={() => handleReload()}>Recommencer</button>
-                <a href=""><button className="btn btn-outline-primary">Contribuer</button></a>
-                <a href=""><button className="btn btn_custom_brown">Informations</button></a>
+                <a href="/contribute"><button className="btn btn-outline-primary">Contribuer</button></a>
+                <a href="/recycling"><button className="btn btn_custom_brown">Informations</button></a>
 
               </div>
             </div>
@@ -227,7 +243,8 @@ const ScanPage = () => {
                 }
                 </div>
               }
-              <a href=""><button className="btn btn_custom_brown">Signaler un problème ?</button></a>
+              <button className="btn btn-outline-success" onClick={handleReload}>Chercher un autre produit</button>
+              <a href="/contact"><button className="btn btn_custom_brown">Signaler un problème ?</button></a>
             </div>
             <div className="right-result-found-container">
             {(apiRes.data.product.packaging_tags || apiRes.data.product.packaging) && recyclingName.some(element => (apiRes.data.product.packaging_tags.includes(element) || apiRes.data.product.packaging.includes(element))) ?
@@ -258,12 +275,12 @@ const ScanPage = () => {
         </a>
       </div>
 
-      {(!camera && !handCode && !result) ?
+      {(!camera && !keyboard && !result) ?
       <div className="info-container">
         <h2>Trouver votre produit</h2>
         <div className="top-info-buttons">
           <button className="btn btn-success" onClick={() => setCamera(true)}>Scanner</button>
-          <button className="btn btn_custom_brown" onClick={() => handleSetHandCode()}>Saisir code</button>
+          <button className="btn btn_custom_brown" onClick={() => handleSetKeyboard()}>Saisir code</button>
         </div>
         <div className="bottom-info-scan-img-mobile-container">
           <img src={ScanImg} alt='scan logo'/>
@@ -271,17 +288,17 @@ const ScanPage = () => {
       </div>
       : null}
 
-      {handCode && !result &&
+      {keyboard && !result &&
         <>
-          <div className="top-handcode-container">
+          <div className="top-keyboard-container">
             <h2>Entrer le numéro du code barre de votre emballage</h2>
-            <div className="top-handcode-input">
+            <div className="top-keyboard-input">
               <input type="number" placeholder="302329000485" onChange={(e) => handleCodeBarResult(e.target.value)}/>
               <button className="btn btn_custom_full_brown" onClick={() => handleSetResult(codeBarResult)}>Rechercher</button>
             </div>
           </div>
 
-          <div className="bottom-handcode-container">
+          <div className="bottom-keyboard-container">
             <img src={CodeSearch} alt='search logo'/>
           </div>
         </>
@@ -311,8 +328,8 @@ const ScanPage = () => {
               <div className="top-result-not-found-buttons">
                 <p><i>Il se peut que votre produit ne soit pas encore dans nos données</i></p>
                 <button className="btn btn-outline-success" onClick={() => handleReload()}>Recommencer</button>
-                <a href=""><button className="btn btn-outline-primary">Contribuer</button></a>
-                <a href=""><button className="btn btn_custom_brown">Informations</button></a>
+                <a href="/contribute"><button className="btn btn-outline-primary">Contribuer</button></a>
+                <a href="/info"><button className="btn btn_custom_brown">Informations</button></a>
 
               </div>
             </div>
@@ -347,7 +364,10 @@ const ScanPage = () => {
                   <h3 className='bottom-result-status-unrecyclable'><strong>Non Recyclable</strong></h3>
                 </div>
               }
-              <a href=""><button className="btn btn_custom_brown">Signaler une erreur ?</button></a>
+              <div className="bottom-result-container">
+                <button className="btn btn-outline-success" onClick={handleReload}>Chercher un autre produit</button>
+                <a href="/contact"><button className="btn btn_custom_brown">Signaler une erreur ?</button></a>
+                </div>
             </div>
           </>
           }

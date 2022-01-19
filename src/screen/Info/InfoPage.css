@@ -130,10 +130,9 @@
 }
 
 
-.InfoPage-desktop .img-info-container, .InfoPage-desktop .data-info-container,  {
+.InfoPage-desktop .img-info-container, .InfoPage-desktop .data-info-container  {
   margin-top: 10px;
   font-size: 0.8rem;
-  color: red;
 }
 
 .InfoPage-desktop .img-info-container a {

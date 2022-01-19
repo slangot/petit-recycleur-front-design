@@ -3,7 +3,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 /***** Background Decoration 
-******/
+****** /
 .ScanPage .ScanPage-decoration1 {
   position: absolute;
   top: 50vh;
@@ -27,7 +27,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 /***** Custom buttons
-*****/
+***** /
 .ScanPage .btn_custom_brown {
   color: #A0522D;
   border-color: #A0522D;
@@ -79,7 +79,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   text-decoration: none;
   color: green;
 }
-
+*/
 
 /***** Desktop version
 *****/
@@ -101,7 +101,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 /**** Left desktop aside
 ****/
-.ScanPage .left-info-container, .ScanPage .left-handcode-container, .ScanPage .left-camera-container, .ScanPage .left-result-not-found-container, .ScanPage .left-result-found-container {
+.ScanPage .left-info-container, .ScanPage .left-keyboard-container, .ScanPage .left-camera-container, .ScanPage .left-result-not-found-container, .ScanPage .left-result-found-container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -112,14 +112,14 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 
-.ScanPage .left-info-buttons, .ScanPage .left-handcode-input, .ScanPage .left-camera-container {
+.ScanPage .left-info-buttons, .ScanPage .left-keyboard-input, .ScanPage .left-camera-container {
   display: flex;
   flex-direction: column;
   width: 50%;
   margin: 0 auto;
 }
 
-.ScanPage .left-info-buttons .btn, .ScanPage .left-handcode-input btn, .ScanPage .left-handcode-input input {
+.ScanPage .left-info-buttons .btn, .ScanPage .left-keyboard-input btn, .ScanPage .left-keyboard-input input {
   margin: 10px 0;
 }
 
@@ -138,7 +138,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 /**** Right desktop aside
 ****/
-.ScanPage .right-img-container, .ScanPage .right-handcode-container, .ScanPage .right-result-not-found-container, .ScanPage .right-result-found-container {
+.ScanPage .right-img-container, .ScanPage .right-keyboard-container, .ScanPage .right-result-not-found-container, .ScanPage .right-result-found-container {
   display: flex;
   justify-content: center;
   align-content: center;
@@ -160,19 +160,19 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 
-.ScanPage .left-handcode-container input {
+.ScanPage .left-keyboard-container input {
   height: 40px;
   border-radius: 5px;
   border: 1px solid black;
   text-align: center;
 }
 
-.ScanPage .left-handcode-container input:focus {
+.ScanPage .left-keyboard-container input:focus {
   outline: green;
   border: 1px solid green;
 }
 
-.ScanPage .right-img-container > img, .ScanPage .right-handcode-container > img, .ScanPage .right-camera-container > img, .ScanPage .right-result-not-found-container > img {
+.ScanPage .right-img-container > img, .ScanPage .right-keyboard-container > img, .ScanPage .right-camera-container > img, .ScanPage .right-result-not-found-container > img {
   padding: 50px;
   width: 100%;
 }
@@ -187,14 +187,14 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 @media screen and (min-width: 576px) and (max-width: 750px) {
-  .ScanPage .right-img-container, .ScanPage .right-handcode-container, .ScanPage .right-result-not-found-container, .ScanPage .right-result-found-container {
+  .ScanPage .right-img-container, .ScanPage .right-keyboard-container, .ScanPage .right-result-not-found-container, .ScanPage .right-result-found-container {
     min-width: 200px;
     margin-top: 15vh;
     height: 300px;
     width: 300px;
     /* height: 80vh; */
   }
-  .ScanPage .right-img-container > img, .ScanPage .right-handcode-container > img, .ScanPage .right-camera-container > img, .ScanPage .right-result-not-found-container > img {
+  .ScanPage .right-img-container > img, .ScanPage .right-keyboard-container > img, .ScanPage .right-camera-container > img, .ScanPage .right-result-not-found-container > img {
     padding: 30px;
     width: 300px;
     height: 300px;
@@ -222,6 +222,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    margin-bottom: 50px;
   }
 
   .ScanPage .ScanPage-decoration2 {
@@ -275,9 +276,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     width: 100%;
   }
 
-  /**** Handcode mobile
+  /**** keyboard mobile
   ****/
-  .ScanPage-mobile .top-handcode-container {
+  .ScanPage-mobile .top-keyboard-container {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -287,36 +288,36 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     text-align: center;
   }
 
-  .ScanPage-mobile .top-handcode-input {
+  .ScanPage-mobile .top-keyboard-input {
     display: flex;
     flex-direction: column;
     width: 50%;
     margin: 0 auto;
   }
 
-  .ScanPage-mobile .top-handcode-input input {
+  .ScanPage-mobile .top-keyboard-input input {
     height: 40px;
     border-radius: 5px;
     border: 1px solid black;
     text-align: center;
   }
 
-  .ScanPage-mobile .top-handcode-input input:focus {
+  .ScanPage-mobile .top-keyboard-input input:focus {
     outline: green;
     border: 1px solid green;
   }
 
-  .ScanPage-mobile .top-handcode-input btn, .ScanPage-mobile .top-handcode-input input {
+  .ScanPage-mobile .top-keyboard-input btn, .ScanPage-mobile .top-keyboard-input input {
     margin: 10px 0;
   }
 
-  .ScanPage-mobile .bottom-handcode-container {
+  .ScanPage-mobile .bottom-keyboard-container {
     width: 100vw;
     margin: 0 auto;
     text-align: center;
   }
 
-  .ScanPage-mobile .bottom-handcode-container > img {
+  .ScanPage-mobile .bottom-keyboard-container > img {
     width: 200px;
     height: 170px;
   }
@@ -416,6 +417,13 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     margin-top: 5px;
     width: 170px;
     padding: 0px;
+  }
+  .ScanPage-mobile .bottom-result-container {
+    margin: 5px auto;
+    width: 170px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
   }
 
 

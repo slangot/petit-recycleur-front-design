@@ -1,0 +1,85 @@
+:root {
+
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/***** Background Decoration 
+******/
+.background-decoration1 {
+  position: absolute;
+  top: 50vh;
+  left: -10vw;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  z-index: 0;
+  background-color: rgba(48, 212, 56, 0.2);
+}
+
+.background-decoration2 {
+  position: absolute;
+  top: 5vh;
+  left: 90vw;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  z-index: 0;
+  background-color: rgba(48, 212, 56, 0.2);
+}
+
+/***** Custom buttons
+*****/
+.btn_custom_brown {
+  color: #A0522D;
+  border-color: #A0522D;
+}
+
+.btn_custom_brown > a{
+  color: #A0522D;
+}
+
+.btn_custom_brown:hover > a{
+  color: white;
+}
+
+.btn_custom_full_brown {
+  color: white;
+  background-color: #A0522D;
+  border-color: none;
+}
+
+.btn_custom_full_brown:hover {
+  color: white;
+  background-color: #70391f;
+  border-color: none;
+}
+
+.btn_custom_brown:hover {
+  color: #fff;
+  background-color: #A0522D;
+  border-color: #A0522D;
+}
+
+
+.btn_custom_gold {
+  color: orange;
+  border-color: orange;
+}
+
+.btn_custom_gold:hover {
+  color: #fff;
+  background-color: orange;
+  border-color: orange;
+}
+
+.btn-outline-success > a {
+  color: green;
+}
+
+.btn-outline-success:hover > a {
+  color: white;
+}

@@ -1,5 +1,5 @@
 .Home {
-  height: 100vh;
+  background-color: white;
 }
 
 .Home .desktop-version {
@@ -13,7 +13,7 @@
 .Home .home_img {
   width: 100%;
 }
-
+/* 
 .Home .btn_custom_brown {
   color: #A0522D;
   border-color: #A0522D;
@@ -23,7 +23,7 @@
   color: #fff;
   background-color: #A0522D;
   border-color: #A0522D;
-}
+} */
 
 .Home .mobile_separator {
   height: 20px;
